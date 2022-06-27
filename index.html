@@ -141,7 +141,7 @@ background: rgba(204, 204, 204, 0.5);color:black;width:40em; margin: 0 auto;padd
             <div class="row bg-light-gray">
                 <div class="col-lg-12">
                     <p class="text-muted" style="padding:20px;">
-                            The FloridaJS group is here to demonstrate the power of the great resources South Florida has for the world.
+                            The FloridaJS group is here to demonstra    te the power of the great resources South Florida has for the world.
                             <br/><br/>
                             In addition to vanilla java script, we'll be looking at frameworks such as ReactJS, NodeJS, AngularJS (1, 1.5 AND 2, 4,5,6,7,8,9...), Ember.js, Ionic and YES even the KING: JQuery!!!!
                    </p>
@@ -461,6 +461,26 @@ background: rgba(204, 204, 204, 0.5);color:black;width:40em; margin: 0 auto;padd
             $(function() {
                     // Get next event
 
+                                    // Youtube Video.
+                var YoutubeCards = document.getElementById("YoutubeCards");
+                fetch('https://wall.bocajs.org/GetYoutubeFeed')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(videos) {
+                    videos.map(video => {
+                        var VideoCard =  document.createElement("article"); 
+                        VideoCard.classList.add("card");
+                        var headerCard =  document.createElement("header"); 
+                        headerCard.classList.add("card-header");
+                        headerCard.innerHTML = "<iframe class=\"video\" src=\"https://www.youtube.com/embed/" + video.videoID + "?enablejsapi=1\" width=400 height=200 frameborder=\"0\" allowfullscreen></iframe><a href=\"" + video.videoUrlLink + "\" target=\"_blank\"><h2>" + video.title + "</h2></a>";
+                        VideoCard.appendChild(headerCard);
+                        YoutubeCards.appendChild(VideoCard);
+                    });
+                    
+                
+                });
+
                 fetch('https://wall.bocajs.org/nextEvent')
                 .then(function(response) {
                     return response.json();
@@ -485,25 +505,7 @@ background: rgba(204, 204, 204, 0.5);color:black;width:40em; margin: 0 auto;padd
                     $("#eventUrl").attr("href",url);
                 });
 
-                // Youtube Video.
-                var YoutubeCards = document.getElementById("YoutubeCards");
-                fetch('https://wall.bocajs.org/GetYoutubeFeed')
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(videos) {
-                    videos.map(video => {
-                        var VideoCard =  document.createElement("article"); 
-                        VideoCard.classList.add("card");
-                        var headerCard =  document.createElement("header"); 
-                        headerCard.classList.add("card-header");
-                        headerCard.innerHTML = "<iframe class=\"video\" src=\"https://www.youtube.com/embed/" + video.videoID + "?enablejsapi=1\" width=400 height=200 frameborder=\"0\" allowfullscreen></iframe><a href=\"" + video.videoUrlLink + "\" target=\"_blank\"><h2>" + video.title + "</h2></a>";
-                        VideoCard.appendChild(headerCard);
-                        YoutubeCards.appendChild(VideoCard);
-                    });
-                    
-                
-                });
+
                 
             // Next event
 
