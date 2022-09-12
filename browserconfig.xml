@@ -1,7 +1,7 @@
 <browserconfig>
 <msapplication>
 <tile>
-<square150x150logo src="/img/floridajsLogo.jpg"/>
+<square150x150logo src="/images/floridajsLogo.jpg"/>
 <TileColor>#000000</TileColor>
 </tile>
 </msapplication>
