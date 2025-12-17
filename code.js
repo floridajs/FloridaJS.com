@@ -1,7 +1,7 @@
 
     // Get next event
 
-fetch('https://wall.bocajs.org/nextEvent')
+fetch('https://wall.floridajs.org/nextEvent')
 .then(function(response) {
     return response.json();
 })
@@ -26,7 +26,7 @@ fetch('https://wall.bocajs.org/nextEvent')
 
 // Youtube Video.
 var YoutubeCards = document.getElementById("YoutubeCards");
-fetch('https://wall.bocajs.org/GetYoutubeFeed')
+fetch('https://wall.floridajs.org/GetYoutubeFeed')
 .then(function(response) {
     return response.json();
 })
